@@ -4,20 +4,20 @@ import matplotlib.pyplot as plt
 from functools import cached_property
 
 
-class FFTArray:
+class FFTResults:
     def __init__(self, xf, yf):
         self.__xf = xf
         self.__yf = yf
         self.__N = len(xf)
-        
+
     @property
     def xf(self):
         return self.__xf
-    
+
     @property
     def yf(self):
         return self.__yf
-    
+
     @property
     def N(self):
         return self.__N
@@ -38,7 +38,7 @@ def signal_fft(signal, sample_rate):
     N = len(signal)
     yf = fft(signal)
     xf = fftfreq(N, sample_rate)
-    return FFTArray(xf, yf)
+    return FFTResults(xf, yf)
 
 
 
